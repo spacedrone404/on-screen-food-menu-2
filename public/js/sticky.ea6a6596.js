@@ -1,0 +1,1 @@
+(()=>{let e=new Date,t=`${e.getDate()}`,n=`${["January","February","March","April","May","June","July","August","September","October","November","December"][e.getMonth()]}`;document.getElementById("morf-date").textContent=t,document.getElementById("morf-month").textContent=n})();

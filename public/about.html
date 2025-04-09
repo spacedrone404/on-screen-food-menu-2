@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About App</title>
+    <link rel="stylesheet" href="css/index.e8f068d2.css">
+    <script defer src="js/sticky.ea6a6596.js"></script><!-- testing embedded styles and JS in PUG-->
+    <style>
+      .content-wrapper {
+        display: flex;
+        width: 520px;
+        flex-direction: column;
+        justify-content: center;
+      }
+      p {
+        color: black;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+      }
+      ul {
+        font-weight: 900;
+        margin-top: -10px;
+      }
+      li {
+        font-weight: 400;
+      }
+      .pemail {
+        margin-bottom: -35px;
+        font-size: 14px;
+      }
+      .pemail2 {
+        font-size: 14px;
+        font-weight: 900;
+        margin-bottom: -30px;
+        text-decoration: underline;
+      }
+      .pversion {
+        font-weight: 900;
+        outline: 4px #0aed20 groove;
+        margin-bottom: -35px;
+        color: red;
+        margin-bottom: -20px;
+        padding: 4px;
+      }
+      #typing-container {
+        max-width: 880px;
+        margin: 0 auto;
+        color: #0aed20;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding-bottom: 70px;
+        background-color: rgba(0, 0, 0, 0.88);
+      }
+      .cursor {
+        display: inline-block;
+        width: 10px;
+        height: 1em;
+        background-color: #000;
+        animation: blink 1s infinite;
+        vertical-align: middle;
+        margin-left: 2px;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      p {
+        color: #0aed20;
+      }
+      p.first {
+        margin-top: -20px;
+      }
+      p.first,
+      p.second {
+        margin-bottom: -30px;
+        font-weight: 900;
+        color: #0aed20;
+        text-decoration: underline;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+        margin-bottom: -25px;
+      }
+      li:before {
+        content: "* ";
+      }
+      .cursor {
+        background-color: #0aed20;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <style>
+        p.top-ver {
+          background-color: rgba(0, 0, 0, 0.88);
+          padding: 5px;
+          color: red;
+          text-align: right;
+          padding-right: 80px;
+          animation: top-ver-emerge 1s ease-in-out;
+        }
+        @keyframes top-ver-emerge {
+          0% {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateX(-130%);
+          }
+          100% {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+          }
+        }
+      </style>
+      <p class="top-ver">2025 / version 0.4+ / Node.js 23.7 / Webpack 5.98 / PHP 8.2 / PostgreSQL 14 </p>
+      <div class="side-menu"><a class="side-button-1 button" href="screen1.html">Screen 1</a><a
+          class="side-button-2 button" href="screen2.html">Screen 2 </a><a class="side-button-3 button"
+          href="screen3.html">Screen 3</a><a class="side-button-4 button" href="admin.html">Dashboard</a><a
+          class="side-button-5 button" href="today.html">Today menu</a><a class="side-button-6 button"
+          href="list.html">All dishes</a><a class="side-button-7 button" href="about.html">About app</a></div>
+      <div class="content-wrapper" id="typing-container"></div>
+    </main>
+  </body>
+  <script>
+    const originalContent = `
+p.pversion Version 0.4+
+p This web application combines abilities not only for restaurant customer service, but also for restaurant staff.Functionality should be expanded in a while, draft testbed version. Intended to use with 1920x1080 screens, so no responsive design at this time.
+
+p.first Available functionality: 
+  li shows dinning menu on multiple monitors 
+  li data are taken from PostgreSQL by means of JS & PHP
+  li dashboard for adding new dishes 
+  li removing dishes in the database by ID
+  li listing available dishes 
+  li direct editing of listed elements
+  li real-time live search by title and ID
+
+p.second Distinctive features:
+  li Apache, Webpack, Pug, Js, PHP, PostgreSQL
+  li no lamer frameworks were used
+  li pure SCSS, no images were used
+  li purely made in VS Code
+  li made in Windows 7 x64/FedFox 135
+  
+p.pemail created by spacedrone404 
+p.pemail [ s p 8 0 8 A T d i s r o o t DOT o r g ]
+p.pemail2 passionate about webdev
+p.pemail2 looking for a solid job
+`;
+
+    const container = document.getElementById('typing-container');
+    const lines = originalContent.split('\n').filter(line => line.trim() !== '');
+
+    let currentLine = 0;
+    let currentChar = 0;
+    let currentElement = null;
+
+    function typeNextCharacter() {
+      if (currentLine >= lines.length) {
+        // Remove cursor when typing is complete
+        const cursor = document.querySelector('.cursor');
+        //- if (cursor) cursor.remove();
+        return;
+      }
+
+      const line = lines[currentLine].trim();
+
+      // Create new element if needed
+      if (!currentElement) {
+        const tagMatch = line.match(/^([a-z]+(\.[a-z0-9]+)?)/);
+        if (tagMatch) {
+          const tagParts = tagMatch[1].split('.');
+          const tagName = tagParts[0];
+          currentElement = document.createElement(tagName);
+
+          if (tagParts.length > 1) {
+            currentElement.className = tagParts[1];
+          }
+
+          container.appendChild(currentElement);
+          currentChar = tagMatch[0].length + 1; // Skip tag and space
+        } else {
+          // Handle indented lines (li elements)
+          if (line.startsWith('li * ')) {
+            const lastUl = container.querySelector('ul:last-child');
+            if (lastUl) {
+              currentElement = document.createElement('li');
+              lastUl.appendChild(currentElement);
+              currentChar = 5; // Skip "li * "
+            }
+          } else if (line.startsWith('  li * ')) {
+            const lastUl = container.querySelector('ul:last-child');
+            if (lastUl) {
+              currentElement = document.createElement('li');
+              lastUl.appendChild(currentElement);
+              currentChar = 7; // Skip "  li * "
+            }
+          }
+        }
+      }
+
+      // Add next character
+      if (currentElement && currentChar < line.length) {
+        currentElement.textContent += line[currentChar];
+        currentChar++;
+
+        // Add blinking cursor
+        const existingCursor = document.querySelector('.cursor');
+        if (existingCursor) existingCursor.remove();
+
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        currentElement.appendChild(cursor);
+
+        // Random typing speed for more natural effect
+        const speed = Math.random() * 14 + 6;
+        setTimeout(typeNextCharacter, speed);
+      } else {
+        // Move to next line
+        currentLine++;
+        currentChar = 0;
+        currentElement = null;
+
+        // Add delay between paragraphs
+        setTimeout(typeNextCharacter, currentLine % 3 === 0 ? 500 : 200);
+      }
+    }
+
+    // Start typing
+    setTimeout(typeNextCharacter, 1000);
+  </script>
+</html>

@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    style. 
+      .dayp {font-size: 18px; color: green; margin-top: 50px;}
+      .content-wrapper {flex-direction: column;}
+body
+  main
+    .content-wrapper
+      p.dayp This is where the meal list for today's date will be generated
+
+      #menu
+          #category Cold dishes
+          #menuContainerCold
+          #category First courses
+          #menuContainerFirst
+          #category Second courses
+          #menuContainerSecond
+          #category Side dishes
+          #menuContainerSide
+          #category Drinks
+          #menuContainerDrinks
+          #category Bakery
+          #menuContainerBakery
+          #category Bread
+          #menuContainerBread
+
+      form#menu(action="app/today.php", method="post")  

@@ -1,0 +1,31 @@
+.content-wrapper
+
+    .titleBlock
+        h1 LIST OF ALL DISHES IN THE DATABASE
+    
+        div.search-container
+            input#searchBar(type="text" placeholder="Search by title or ID ...")
+            a(href="admin.html" class="new-dish") + New dish
+
+        p.warning All elements are editable. When you move the cursor over an editable area, it changes to a text editor cursor. After clicking on it you are prompted to enter text. When you are finished typing, press Enter or click anywhere on the page and a green button with check mark appears to confirm saving.
+.content-wrapper     
+    #menu
+        #category Cold dishes
+        #menuContainerCold
+        #category First courses
+        #menuContainerFirst
+        #category Second courses
+        #menuContainerSecond
+        #category Side dishes
+        #menuContainerSide
+        #category Drinks
+        #menuContainerDrinks
+        #category Bakery
+        #menuContainerBakery
+        #category Bread
+        #menuContainerBread
+
+    form#menu(action="app/list.php", method="post")  
+
+
+

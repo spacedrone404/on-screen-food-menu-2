@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin dashboard </title>
+    <link rel="stylesheet" href="css/index.e8f068d2.css">
+    <script defer src="js/sticky.ea6a6596.js"></script>
+    <script defer src="js/admin.1.991c8933.js"></script>
+  </head>
+  <body>
+    <main>
+      <style>
+        p.top-ver {
+          background-color: rgba(0, 0, 0, 0.88);
+          padding: 5px;
+          color: red;
+          text-align: right;
+          padding-right: 80px;
+          animation: top-ver-emerge 1s ease-in-out;
+        }
+        @keyframes top-ver-emerge {
+          0% {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateX(-130%);
+          }
+          100% {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+          }
+        }
+      </style>
+      <p class="top-ver">2025 / version 0.4+ / Node.js 23.7 / Webpack 5.98 / PHP 8.2 / PostgreSQL 14 </p>
+      <div class="side-menu"><a class="side-button-1 button" href="screen1.html">Screen 1</a><a
+          class="side-button-2 button" href="screen2.html">Screen 2 </a><a class="side-button-3 button"
+          href="screen3.html">Screen 3</a><a class="side-button-4 button" href="admin.html">Dashboard</a><a
+          class="side-button-5 button" href="today.html">Today menu</a><a class="side-button-6 button"
+          href="list.html">All dishes</a><a class="side-button-7 button" href="about.html">About app</a></div>
+      <div class="date-wrapper">
+        <div class="note yellow">
+          <div class="pin">
+            <div id="morf-date"> </div>
+            <div id="morf-month"></div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="viewBlock">
+          <h3>Add the dish to the database</h3>
+          <form id="form-wrapper" action="app/injector.php" method="post">
+            <div class="form-div"><label for="code">Dish ID number: </label><input id="code" type="text" name="code"
+                placeholder="444565" required></div>
+            <div class="form-div"><label for="category">Category: </label><select id="categories" name="categories[]"
+                required>
+                <option value="Cold dishes">Cold dishes</option>
+                <option value="First courses">First courses</option>
+                <option value="Second courses">Second courses</option>
+                <option value="Side dishes">Side dishes</option>
+                <option value="Bread">Bread</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Drinks">Drinks</option>
+              </select></div>
+            <div class="form-div"><label for="title">Name of dish: </label><input id="title" type="text" name="title"
+                placeholder="Salad of health" required></div>
+            <div class="form-div"><label for="description">Description of dish: </label><input id="description"
+                type="text" name="description" placeholder="Vegetarian salad" required></div>
+            <div class="form-div"><label for="weight">Weight (g): </label><input id="weight" type="text" name="weight"
+                placeholder="200" required></div>
+            <div class="form-div"><label for="price">Price $: </label><input id="price" type="text" name="price"
+                placeholder="150" required></div>
+            <div class="form-div-center"><input id="submitButton" type="submit" value="Add dish to DB"></div>
+          </form>
+          <p>*All fields must be filled in before adding a dish! </p><br>
+          <form id="form-wrapper-2" action="app/wiper.php" method="post">
+            <div class="form-div">
+              <h3>Deleting the dish from DB by ID</h3><label for="code">Dish ID: </label><input id="code" type="text"
+                name="code" placeholder="444565" required>
+            </div>
+            <div class="form-div-delete"><input id="delete-response" type="submit" value="Delete dish from DB"></div>
+          </form>
+          <div class="lista-all-wrapper"><a href="list.html" target="_blank" id="list-all"> Show list of all dishes
+              [opens in new tab] </a></div>
+        </div>
+        <form id="form-wrapper" action="app/some.php" method="post">
+          <div class="form-div">
+            <h3>More functionality</h3><label for="code">Dish ID: </label><input id="code" type="text" name="code">
+          </div>
+          <div class="form-div-delete"><input id="delete-response" type="submit" value="Some other action"></div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

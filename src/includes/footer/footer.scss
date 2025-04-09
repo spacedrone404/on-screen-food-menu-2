@@ -1,0 +1,16 @@
+@use "/src/styles/main" as *;
+
+.footer-block {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__text {
+  position: absolute;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  font-weight: normal;
+  bottom: 4%;
+}

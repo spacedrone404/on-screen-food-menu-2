@@ -1,0 +1,64 @@
+.date-wrapper 
+    .note.yellow
+        .pin
+            #morf-date  
+            #morf-month
+.content-wrapper
+    .viewBlock
+        h3 Add the dish to the database
+        form#form-wrapper(action="app/injector.php", method="post")
+            .form-div
+                label(for="code") Dish ID number: 
+                input#code(type="text", name="code", placeholder="444565" required)
+            .form-div
+                label(for="category") Category: 
+                select#categories(name="categories[]", required)
+                    option(value="Cold dishes") Cold dishes
+                    option(value="First courses") First courses
+                    option(value="Second courses") Second courses
+                    option(value="Side dishes") Side dishes
+                    option(value="Bread") Bread
+                    option(value="Bakery") Bakery
+                    option(value="Drinks") Drinks
+            .form-div
+                label(for="title") Name of dish: 
+                input#title(type="text", name="title", placeholder="Salad of health" required)
+            .form-div
+                label(for="description") Description of dish: 
+                input#description(type="text", name="description",placeholder="Vegetarian salad" required)
+            .form-div
+                label(for="weight") Weight (g): 
+                input#weight(type="text", name="weight", placeholder="200" required)
+            .form-div
+                label(for="price") Price $: 
+                input#price(type="text", name="price", placeholder="150" required)
+            .form-div-center
+                input#submitButton(type="submit", value="Add dish to DB")
+        
+        p *All fields must be filled in before adding a dish!  
+        br
+                    
+        form#form-wrapper-2(action="app/wiper.php", method="post")  
+            .form-div
+                h3 Deleting the dish from DB by ID
+                label(for="code") Dish ID: 
+                input#code(type="text", name="code", placeholder="444565" required )      
+            .form-div-delete
+                input#delete-response(type="submit", value="Delete dish from DB")
+        .lista-all-wrapper
+            a(href="list.html" target="_blank" id="list-all")  Show list of all dishes [opens in new tab] 
+
+    form#form-wrapper(action="app/some.php", method="post")  
+        .form-div
+            h3 More functionality
+            label(for="code") Dish ID: 
+            input#code(type="text", name="code")      
+        .form-div-delete
+            input#delete-response(type="submit", value="Some other action")
+
+
+    
+
+
+
+

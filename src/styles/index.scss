@@ -1,0 +1,12 @@
+// @use '../styles/main' as *;
+
+@use "../includes/header/header.scss";
+@use "../includes/footer/footer.scss";
+
+@use "../includes/menuscreen/screen1/screen1.scss";
+@use "../includes/sidemenu/sidemenu.scss";
+// @use "../includes/menuscreen/screen2/screen2.scss";
+// @use "../includes/menuscreen/screen3/screen3.scss";
+
+@use "../includes/menuscreen/admin.scss";
+@use "../includes/menuscreen/list.scss";

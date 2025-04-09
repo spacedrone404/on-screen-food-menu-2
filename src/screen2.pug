@@ -1,0 +1,16 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Dining menu screen 2
+    link(rel="stylesheet", href=require("./styles/index.scss"))
+    script(defer src=require("./js/sticky.js"))
+    script(defer src=require("./js/menuscreen/screen2.js"))
+
+  body
+    main
+      include ./includes/version
+      include ./includes/sidemenu/sidemenu
+      include ./includes/menuscreen/screen2/screen2
+      

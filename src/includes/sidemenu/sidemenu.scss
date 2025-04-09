@@ -1,0 +1,115 @@
+.side-menu {
+  transform: translateX(-80px);
+  // opacity: 0;
+  // filter:blur(8px);
+  animation: sideEmerge 1s ease-in-out;
+  z-index: 1000;
+}
+
+@keyframes sideEmerge {
+  0% {
+    filter: blur(8px);
+    opacity: 0;
+  }
+
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.button:hover {
+  animation: button-movement 0.4s ease-in-out forwards;
+}
+.side-menu a:hover {
+  color: black;
+}
+
+@keyframes button-movement {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(14px);
+  }
+}
+
+.button {
+  color: #ffffff;
+  width: 180px;
+  height: fit-content;
+  padding: 15px 30px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 5px 12px 18px 0px rgba(0, 0, 0, 0.45);
+}
+
+.side-menu button:hover a {
+  color: #000000;
+}
+
+.side-button-1 {
+  background-color: #ff0000;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(206, 12, 12, 1) 100%
+  );
+}
+
+.side-button-2 {
+  background-color: #008000;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 128, 0, 1) 100%
+  );
+}
+
+.side-button-3 {
+  background-color: #1680dc;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(22, 128, 220, 1) 100%
+  );
+}
+.side-button-4 {
+  background-color: #dc16be;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(220, 22, 190, 1) 100%
+  );
+}
+.side-button-5 {
+  background-color: #dc9016;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(220, 144, 22, 1) 100%
+  );
+}
+.side-button-6 {
+  background-color: #bfcf13;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(191, 207, 19, 1) 100%
+  );
+}
+
+.side-button-7 {
+  background-color: #13cf29;
+  background: linear-gradient(
+    90deg,
+    rgba(253, 187, 45, 1) 35%,
+    rgba(34, 193, 195, 1) 100%
+  );
+}
