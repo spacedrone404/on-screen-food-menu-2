@@ -2,6 +2,7 @@
 ######################################
 
 I hate lack of documentation, so here you will find comprehensive information about the project.
+I deployed project on Vercel, because i don't have idea how to do it in fast way on GitHub pages.
 
 ► IMPLEMENTED FUNCTIONALITY  
 ############################
