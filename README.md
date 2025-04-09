@@ -58,9 +58,9 @@ Project includes the following technologies:
 ► DATABASE ENVIRONMENT [_db folder]
 ####################################
 
-Host: localhost
-Database : menus
-Table: dinnermenus
+Host: localhost  
+Database : menus  
+Table: dinnermenus  
 
 To import "dinnermenus" table to "menus" database execute following:
 ```
