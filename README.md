@@ -1,9 +1,9 @@
-► ON-SCREEN FOOD MENU FOR RESTAURANTS
+► ON-SCREEN FOOD MENU FOR RESTAURANTS  
 ######################################
 
 I hate lack of documentation, so here you will find comprehensive information about the project.
 
-► IMPLEMENTED FUNCTIONALITY
+► IMPLEMENTED FUNCTIONALITY  
 ############################
 
 This web application combines abilities not only for restaurant customer service, but also for restaurant staff.
@@ -20,7 +20,7 @@ Functionality for restaurant staff:
 * direct editing of listed elements
 * real-time live search by title and ID
 
-► DISTINCTIVE FEATURES
+► DISTINCTIVE FEATURES  
 #######################
 
 * wide range of technologies used
@@ -29,7 +29,7 @@ Functionality for restaurant staff:
 * purely made in VS Code
 * made in Windows 7 x64 ESU/RedFox 135
 
-► TECHNOLOGY STACK  
+► TECHNOLOGY STACK    
 ###################
  
 FRONTEND SIDE  
@@ -69,6 +69,7 @@ psql -U postgres -d menus < dinnermenus.sql
 
 SQL QUERY TO INSERT DATA
 
+```
 INSERT INTO dinnermenus (id, code, category, title, description, weight, price)
 VALUES
 (1, '1032', 'Cold dishes', 'Cold dishes menu 1', 'secondary description', '100', '100'),
@@ -85,6 +86,7 @@ VALUES
 (12, '3049', 'Bakery', 'Rug roll ban 2', 'secondary description', '50', '150'),
 (13, '3050', 'Bread', 'Bread 1', 'secondary description', '54', '70'),
 (14, '3051', 'Bread', 'Bread 2', 'secondary description', '40', '65');
+```
 
 ► PHP SERVER-SIDE LOGIC [_htdocs]
 ##################################
