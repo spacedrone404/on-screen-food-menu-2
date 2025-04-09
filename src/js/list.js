@@ -8,21 +8,26 @@ const categories = [
   { name: "Bread", container: "menuContainerBread" },
 ];
 
-// Replace with your Railway domain
-const BASE_URL = "https://on-screen-food-menu-2-server.railway.app"; // e.g., https://my-php-backend.up.railway.app
-//try with up added to url
+const BASE_URL = "https://on-screen-food-menu-2-server.railway.app";
 
-let allMenuItems = []; // Store all items for filtering
+let allMenuItems = [];
 
-// Fetch data from Railway backend
 const requests = categories.map(({ name, container }) =>
   fetch(`${BASE_URL}/list.php?category=${encodeURIComponent(name)}`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      return response.json();
+    })
     .then((data) => {
       allMenuItems = allMenuItems.concat(
         data.map((item) => ({ ...item, category: name }))
       );
       return { container, data };
+    })
+    .catch((error) => {
+      console.error(`Error fetching ${name}:`, error);
+      return { container, data: [] }; // Fallback to empty data
     })
 );
 
@@ -31,7 +36,6 @@ Promise.all(requests).then((results) => {
     renderMenu(container, data);
   });
 
-  // Search functionality
   const searchBar = document.getElementById("searchBar");
   searchBar.addEventListener("input", function () {
     const searchTerm = this.value.toLowerCase();
@@ -39,9 +43,9 @@ Promise.all(requests).then((results) => {
   });
 });
 
-// Render category section (unchanged)
 function renderMenu(containerId, data) {
   const container = document.getElementById(containerId);
+  if (!container) return; // Prevent errors if container is missing
   container.innerHTML = "";
 
   data.forEach((item) => {
@@ -55,14 +59,12 @@ function renderMenu(containerId, data) {
         <div class="menu-weight editable" data-field="weight" contenteditable="true" data-original="${item.weight}">${item.weight} g</div>
         <div class="menu-price editable" data-field="price" contenteditable="true" data-original="${item.price}">${item.price} $</div>
         <div class="save-delete-align"><button class="save-btn" style="display: none;">√</button>
-        <button class="delete-btn">X</button>
-        </div>
+        <button class="delete-btn">X</button></div>
       </div>
     `;
     container.innerHTML += menuItem;
   });
 
-  // Add event listeners for real-time updates
   container.querySelectorAll(".editable").forEach((element) => {
     element.addEventListener("focus", function () {
       if (this.dataset.field === "weight")
@@ -94,7 +96,6 @@ function renderMenu(containerId, data) {
     };
 
     element.addEventListener("blur", checkChanges);
-
     element.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
         event.preventDefault();
@@ -122,10 +123,10 @@ function renderMenu(containerId, data) {
   toggleCategoryVisibility(containerId, data.length > 0);
 }
 
-// Filter menu items (unchanged)
 function filterMenuItems(searchTerm) {
   categories.forEach((category) => {
-    document.getElementById(category.container).innerHTML = "";
+    const container = document.getElementById(category.container);
+    if (container) container.innerHTML = "";
   });
 
   const filteredItems = allMenuItems.filter(
@@ -135,9 +136,7 @@ function filterMenuItems(searchTerm) {
   );
 
   const itemsByCategory = filteredItems.reduce((acc, item) => {
-    if (!acc[item.category]) {
-      acc[item.category] = [];
-    }
+    if (!acc[item.category]) acc[item.category] = [];
     acc[item.category].push(item);
     return acc;
   }, {});
@@ -148,7 +147,6 @@ function filterMenuItems(searchTerm) {
   });
 }
 
-// Toggle category visibility (unchanged)
 function toggleCategoryVisibility(containerId, hasItems) {
   const categoryElement = document.querySelector(`#category + #${containerId}`);
   if (categoryElement && categoryElement.previousElementSibling) {
@@ -157,7 +155,6 @@ function toggleCategoryVisibility(containerId, hasItems) {
   }
 }
 
-// Save item to Railway backend
 function saveItem(id) {
   const menuItem = document.querySelector(`.menu-item[data-id="${id}"]`);
   const updatedData = {
@@ -179,12 +176,14 @@ function saveItem(id) {
 
   fetch(`${BASE_URL}/list.php`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(updatedData),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      return response.json();
+    })
     .then((data) => {
       if (data.success) {
         menuItem.querySelectorAll(".editable").forEach((element) => {
@@ -198,22 +197,24 @@ function saveItem(id) {
       }
     })
     .catch((error) => {
+      console.error("Save error:", error);
       alert("Error: " + error.message);
     });
 }
 
-// Delete item from Railway backend
 function deleteItem(id, menuItemElement) {
   if (!confirm("Are you sure you want to delete this item?")) return;
 
   fetch(`${BASE_URL}/list.php`, {
     method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: id }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      return response.json();
+    })
     .then((data) => {
       if (data.success) {
         menuItemElement.remove();
@@ -223,6 +224,7 @@ function deleteItem(id, menuItemElement) {
       }
     })
     .catch((error) => {
+      console.error("Delete error:", error);
       alert("Error: " + error.message);
     });
 }
