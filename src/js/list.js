@@ -9,7 +9,7 @@ const categories = [
 ];
 
 // Replace with your Railway domain
-const BASE_URL = "https://your-app.up.railway.app"; // e.g., https://my-php-backend.up.railway.app
+const BASE_URL = "https://on-screen-food-menu-2-server.railway.app"; // e.g., https://my-php-backend.up.railway.app
 
 let allMenuItems = []; // Store all items for filtering
 
