@@ -88,7 +88,7 @@ VALUES
 (14, '3051', 'Bread', 'Bread 2', 'secondary description', '40', '65');
 ```
 
-► PHP SERVER-SIDE LOGIC [_htdocs]
+► PHP SERVER-SIDE LOGIC [_htdocs]  
 ##################################
 
 info.php > reports PHP environment status
@@ -99,7 +99,7 @@ list.php > lists all dishes in the database
 wiper.php > deletes dish by ID code in the database
 
 
-► TECHNICAL DETAILS
+► TECHNICAL DETAILS  
 ####################
 
 Project implements solution for a dinning menu generation, where data are taken from PostgreSQL database via PHP script.
@@ -124,7 +124,7 @@ and so on ....
 Such feature will be useful to display independent information on different screens.
 You can add more of them if you have such needs.
 
-► FAQ & TROUBLESHOOTING
+► FAQ & TROUBLESHOOTING  
 ############################
 
 0] To start frontend-environment
