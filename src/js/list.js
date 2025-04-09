@@ -8,12 +8,14 @@ const categories = [
   { name: "Bread", container: "menuContainerBread" },
 ];
 
+// Replace with your Railway domain
+const BASE_URL = "https://your-app.up.railway.app"; // e.g., https://my-php-backend.up.railway.app
+
 let allMenuItems = []; // Store all items for filtering
 
-//List + edit + delete + save
-
+// Fetch data from Railway backend
 const requests = categories.map(({ name, container }) =>
-  fetch(`app/list.php?category=${encodeURIComponent(name)}`)
+  fetch(`${BASE_URL}/list.php?category=${encodeURIComponent(name)}`)
     .then((response) => response.json())
     .then((data) => {
       allMenuItems = allMenuItems.concat(
@@ -36,7 +38,7 @@ Promise.all(requests).then((results) => {
   });
 });
 
-// Render category section
+// Render category section (unchanged)
 function renderMenu(containerId, data) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -58,6 +60,7 @@ function renderMenu(containerId, data) {
     `;
     container.innerHTML += menuItem;
   });
+
   // Add event listeners for real-time updates
   container.querySelectorAll(".editable").forEach((element) => {
     element.addEventListener("focus", function () {
@@ -67,7 +70,6 @@ function renderMenu(containerId, data) {
         this.textContent = this.textContent.replace(" $", "");
     });
 
-    // Function to check changes and show save button
     const checkChanges = function () {
       const original = this.dataset.original;
       let current = this.textContent;
@@ -90,19 +92,16 @@ function renderMenu(containerId, data) {
       }
     };
 
-    // Handle blur (calls checkChanges)
     element.addEventListener("blur", checkChanges);
 
-    // Handle Enter key press (new addition)
     element.addEventListener("keydown", function (event) {
       if (event.key === "Enter") {
-        event.preventDefault(); // Prevent line break in contenteditable
-        this.blur(); // Trigger blur to run checkChanges and update UI
+        event.preventDefault();
+        this.blur();
       }
     });
   });
 
-  // Add click handlers to save buttons
   container.querySelectorAll(".save-btn").forEach((button) => {
     button.addEventListener("click", function () {
       const menuItem = this.closest(".menu-item");
@@ -110,7 +109,7 @@ function renderMenu(containerId, data) {
       saveItem(id);
     });
   });
-  // Add click handlers to delete buttons
+
   container.querySelectorAll(".delete-btn").forEach((button) => {
     button.addEventListener("click", function () {
       const menuItem = this.closest(".menu-item");
@@ -119,24 +118,21 @@ function renderMenu(containerId, data) {
     });
   });
 
-  //Toggle category visibility
   toggleCategoryVisibility(containerId, data.length > 0);
 }
 
+// Filter menu items (unchanged)
 function filterMenuItems(searchTerm) {
-  // Clear all containers
   categories.forEach((category) => {
     document.getElementById(category.container).innerHTML = "";
   });
 
-  // Filter items
   const filteredItems = allMenuItems.filter(
     (item) =>
       item.title.toLowerCase().includes(searchTerm) ||
       item.code.toLowerCase().includes(searchTerm)
   );
 
-  // Group filtered items by category
   const itemsByCategory = filteredItems.reduce((acc, item) => {
     if (!acc[item.category]) {
       acc[item.category] = [];
@@ -145,13 +141,13 @@ function filterMenuItems(searchTerm) {
     return acc;
   }, {});
 
-  // Render filtered items
   categories.forEach((category) => {
     const data = itemsByCategory[category.name] || [];
     renderMenu(category.container, data);
   });
 }
 
+// Toggle category visibility (unchanged)
 function toggleCategoryVisibility(containerId, hasItems) {
   const categoryElement = document.querySelector(`#category + #${containerId}`);
   if (categoryElement && categoryElement.previousElementSibling) {
@@ -160,6 +156,7 @@ function toggleCategoryVisibility(containerId, hasItems) {
   }
 }
 
+// Save item to Railway backend
 function saveItem(id) {
   const menuItem = document.querySelector(`.menu-item[data-id="${id}"]`);
   const updatedData = {
@@ -179,7 +176,7 @@ function saveItem(id) {
     ).name,
   };
 
-  fetch("app/list.php", {
+  fetch(`${BASE_URL}/list.php`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -189,7 +186,6 @@ function saveItem(id) {
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        // Update original values and hide save button
         menuItem.querySelectorAll(".editable").forEach((element) => {
           const newValue = element.textContent.replace(/ g| $/g, "");
           element.dataset.original = newValue;
@@ -205,10 +201,11 @@ function saveItem(id) {
     });
 }
 
+// Delete item from Railway backend
 function deleteItem(id, menuItemElement) {
   if (!confirm("Are you sure you want to delete this item?")) return;
 
-  fetch("app/list.php", {
+  fetch(`${BASE_URL}/list.php`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
