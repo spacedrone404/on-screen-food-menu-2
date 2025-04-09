@@ -3,11 +3,71 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index page</title>
+    <title>Dining menu screen 1</title>
     <link rel="stylesheet" href="css/index.e8f068d2.css">
+    <script defer src="js/sticky.ea6a6596.js"></script>
+    <script defer src="js/screen1.5302a7b9.js"></script>
   </head>
   <body>
-    <main><a href="screen1.html">Screen 1 </a><a href="screen2.html">Screen 2</a><a href="screen3.html">Screen 3</a>
+    <main>
+      <style>
+        p.top-ver {
+          background-color: rgba(0, 0, 0, 0.88);
+          padding: 5px;
+          color: red;
+          text-align: right;
+          padding-right: 80px;
+          animation: top-ver-emerge 1s ease-in-out;
+        }
+        @keyframes top-ver-emerge {
+          0% {
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateX(-130%);
+          }
+          100% {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+          }
+        }
+      </style>
+      <p class="top-ver">2025 / version 0.4+ / Node.js 23.7 / Webpack 5.98 / PHP 8.2 / PostgreSQL 14 </p>
+      <div class="side-menu"><a class="side-button-1 button" href="screen1.html">Screen 1</a><a
+          class="side-button-2 button" href="screen2.html">Screen 2 </a><a class="side-button-3 button"
+          href="screen3.html">Screen 3</a><a class="side-button-4 button" href="admin.html">Dashboard</a><a
+          class="side-button-5 button" href="today.html">Today menu</a><a class="side-button-6 button"
+          href="list.html">All dishes</a><a class="side-button-7 button" href="about.html">About app</a></div>
+      <div class="date-wrapper">
+        <div class="note yellow">
+          <div class="pin">
+            <div id="morf-date"> </div>
+            <div id="morf-month"></div>
+          </div>
+        </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="cat-wrapper">
+          <div class="left-menu-wrapper">
+            <div id="category">Cold dishes</div>
+            <div id="menuContainerCold"></div>
+            <div id="category">First courses</div>
+            <div id="menuContainerFirst"></div>
+            <div id="category">Second courses</div>
+            <div id="menuContainerSecond"></div>
+          </div>
+          <div class="right-menu-wrapper">
+            <div id="category">Side dishes</div>
+            <div id="menuContainerSide"></div>
+            <div id="category">Drinks</div>
+            <div id="menuContainerDrinks"></div>
+            <div id="category">Bakery</div>
+            <div id="menuContainerBakery"></div>
+            <div id="category">Bread</div>
+            <div id="menuContainerBread"></div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>

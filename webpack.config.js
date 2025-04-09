@@ -4,8 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: "./src/index.pug",
-    screen1: "./src/screen1.pug",
+    index: "./src/screen1.pug",
     screen2: "./src/screen2.pug",
     screen3: "./src/screen3.pug",
     admin: "./src/admin.pug",
