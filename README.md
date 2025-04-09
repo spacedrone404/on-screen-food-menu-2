@@ -91,12 +91,12 @@ VALUES
 ► PHP SERVER-SIDE LOGIC [_htdocs]  
 ##################################
 
-info.php > reports PHP environment status
-connection.php > tests database connectivity
-extractor.php > extracts dishes by category
-injector.php > injects a new dish into the database
-list.php > lists all dishes in the database
-wiper.php > deletes dish by ID code in the database
+info.php > reports PHP environment status  
+connection.php > tests database connectivity  
+extractor.php > extracts dishes by category  
+injector.php > injects a new dish into the database  
+list.php > lists all dishes in the database  
+wiper.php > deletes dish by ID code in the database  
 
 
 ► TECHNICAL DETAILS  
