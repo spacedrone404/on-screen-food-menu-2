@@ -69,6 +69,7 @@ psql -U postgres -d menus < dinnermenus.sql
 
 SQL QUERY TO INSERT DATA
 
+```
 INSERT INTO dinnermenus (id, code, category, title, description, weight, price)
 VALUES
 (1, '1032', 'Cold dishes', 'Cold dishes menu 1', 'secondary description', '100', '100'),
@@ -85,6 +86,7 @@ VALUES
 (12, '3049', 'Bakery', 'Rug roll ban 2', 'secondary description', '50', '150'),
 (13, '3050', 'Bread', 'Bread 1', 'secondary description', '54', '70'),
 (14, '3051', 'Bread', 'Bread 2', 'secondary description', '40', '65');
+```
 
 ► PHP SERVER-SIDE LOGIC [_htdocs]
 ##################################
