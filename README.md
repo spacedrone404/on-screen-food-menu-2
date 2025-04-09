@@ -114,10 +114,10 @@ Also make sure to check entry points of webpack.config.js.
 There are index1, index2, index3 and admin.
 So bundler will emit index1.html, index2.html, index3.html to the browser.  
 
-http://localhost:8080/screen1.html
-http://localhost:8080/screen2.html
-http://localhost:8080/screen3.html
-http://localhost:8080/admin.html
+http://localhost:8080/screen1.html  
+http://localhost:8080/screen2.html  
+http://localhost:8080/screen3.html  
+http://localhost:8080/admin.html  
 
 and so on ....
 
