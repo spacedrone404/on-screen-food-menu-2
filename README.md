@@ -4,14 +4,6 @@
 I hate lack of documentation, so here you will find comprehensive information about the project.  
 I deployed project on Vercel, because i don't have idea how to do it in a fast way on GitHub pages.
 
-
-![PIX](assets/food-menu.png)
-![PIX](assets/list.png)
-![PIX](assets/admin.png)
-![PIX](assets/search.png)
-![PIX](assets/version.png)
-
-
 ► IMPLEMENTED FUNCTIONALITY  
 ############################
 
@@ -37,6 +29,14 @@ Functionality for restaurant staff:
 * pure SCSS, no images were used
 * purely made in VS Code
 * made in Windows 7 x64 ESU/RedFox 135
+
+![PIX](assets/video-demo.gif)
+![PIX](assets/food-menu.png)
+![PIX](assets/list.png)
+![PIX](assets/admin.png)
+![PIX](assets/search.png)
+![PIX](assets/version.png)
+
 
 ► TECHNOLOGY STACK    
 ###################
