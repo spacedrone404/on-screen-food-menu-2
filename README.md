@@ -30,14 +30,16 @@ Functionality for restaurant staff:
 * purely made in VS Code
 * made in Windows 7 x64 ESU/RedFox 135
   
-<center>
-![PIX](assets/video-demo.gif)
-![PIX](assets/food-menu.png)
-![PIX](assets/list.png)
-![PIX](assets/admin.png)
-![PIX](assets/search.png)
-![PIX](assets/version.png)
-</center>
+<div align="center">
+  
+  ![PIX](assets/video-demo.gif)
+  ![PIX](assets/food-menu.png)
+  ![PIX](assets/list.png)
+  ![PIX](assets/admin.png)
+  ![PIX](assets/search.png)
+  ![PIX](assets/version.png)
+  
+</div>
 
 ► TECHNOLOGY STACK    
 ###################
