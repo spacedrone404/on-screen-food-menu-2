@@ -21,8 +21,6 @@ Functionality for restaurant staff:
 * direct editing of listed elements
 * real-time live search by title and ID
 
-[SERVER CODE IS HERE](https://github.com/spacedrone404/on-screen-food-menu-2-server)
-
 ► DISTINCTIVE FEATURES  
 #######################
 
@@ -54,6 +52,7 @@ Webpack 5.98
 VS Code 1.93 (hacked)  
 
 BACKEND SIDE  
+[SERVER CODE IS HERE](https://github.com/spacedrone404/on-screen-food-menu-2-server)
 
 XAMPP (to make PHP 8 work on Windows 7)  
 Apache (embedded version)
