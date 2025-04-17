@@ -5,7 +5,7 @@ I hate lack of documentation, so here you will find comprehensive information ab
 I deployed project on Vercel, because i don't have idea how to do it in a fast way on GitHub pages.
 
 
-![PIX](public/assets/admin.png)
+![PIX](assets/admin.png)
 
 
 ► IMPLEMENTED FUNCTIONALITY  
